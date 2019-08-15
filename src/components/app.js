@@ -1,6 +1,5 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import IntegrationChecker from './integration_checker'
+import React from "react"
+import IntegrationChecker from "./integration_checker"
 
 const App = () => {
 	return (
