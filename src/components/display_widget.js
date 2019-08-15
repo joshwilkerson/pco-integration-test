@@ -2,12 +2,14 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { string } from "prop-types"
 
+import ResourcesBadge from "../assets/svg/resources.svg"
+
 DisplayWidget.propTypes = {
 	data: string.isRequired,
 }
 
 export default function DisplayWidget(props) {
-	const { data } = props
+	const { data, name } = props
 	const dataArray = data.split("</div>")
 
 	const isolateScript = dataArray[dataArray.length - 1]
@@ -15,7 +17,7 @@ export default function DisplayWidget(props) {
 		.replace("</script>", "")
 
 	return (
-		<div style={{ flex: 1 }}>
+		<div className="integration-details">
 			<Helmet
 				script={[
 					{
@@ -25,7 +27,10 @@ export default function DisplayWidget(props) {
 				]}
 			/>
 
-			<h2>Resources Widget</h2>
+			<div className="d-f ai-c jc-fs mb-2">
+				<ResourcesBadge />
+				<h2>{name}</h2>
+			</div>
 
 			<div id="resources_calendar_widget" className="styled">
 				<div className="loader">Loading...</div>

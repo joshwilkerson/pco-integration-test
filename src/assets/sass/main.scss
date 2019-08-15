@@ -1,7 +1,14 @@
-@import '~node_modules/normalize.css/normalize';
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 
-html,
-body {
-	font-size: 100%;
-	font-family: sans-serif;
-}
+@import './queries';
+@import '~node_modules/normalize.css/normalize';
+@import './vendor/point/all';
+@import './vendor/minions/all';
+@import './variables';
+@import './minions-adapter';
+
+@import './global';
+@import './header';
+@import './forms';
+@import './button';
+@import './integration';
