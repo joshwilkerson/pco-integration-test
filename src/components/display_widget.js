@@ -1,9 +1,14 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import { string } from "prop-types"
+
+DisplayWidget.propTypes = {
+	data: string.isRequired,
+}
 
 export default function DisplayWidget(props) {
 	const { data } = props
-	let dataArray = data.split("</div>")
+	const dataArray = data.split("</div>")
 
 	const isolateScript = dataArray[dataArray.length - 1]
 		.replace('<script type="text/javascript">', "")

@@ -1,5 +1,11 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import { string } from "prop-types"
+
+DisplayEmbedForm.propTypes = {
+	data: string.isRequired,
+	app: string.isRequired,
+}
 
 export default function DisplayEmbedForm(props) {
 	const { data, app } = props
