@@ -6,6 +6,7 @@ import ResourcesBadge from "../assets/svg/resources.svg"
 
 DisplayWidget.propTypes = {
 	data: string.isRequired,
+	name: string.isRequired,
 }
 
 export default function DisplayWidget(props) {

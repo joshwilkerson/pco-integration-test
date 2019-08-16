@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import DisplayEmbedForm from "./display_embed_form"
 import DisplayWidget from "./display_widget"
 
