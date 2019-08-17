@@ -1,16 +1,19 @@
 import React from "react"
 import Logo from "./logo"
+import { NavLink } from "react-router-dom"
 
 export default function Header() {
 	return (
 		<header className="d-f fd-c jc-sb">
 			<Logo />
-			<nav className="d-f fd-c fd-r@sm ai-c@sm jc-fs jc-sb@sm px-2 py-1">
+			<nav className="d-f fd-c fd-r@sm ai-c@sm jc-fs jc-sb@sm">
 				<div className="mb-1 mb-0@sm">
-					<a href="#_" className="mr-1">
+					<NavLink to="/" className="mr-1" activeClassName="selected" exact>
 						Create New
-					</a>
-					<a href="#_">My Saved Integrations</a>
+					</NavLink>
+					<NavLink to="/saved" activeClassName="selected">
+						My Saved Integrations
+					</NavLink>
 				</div>
 				<div>
 					<p className="m-0">
