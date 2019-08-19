@@ -16,7 +16,7 @@ export default function Header() {
 					</NavLink>
 				</div>
 				<div>
-					<p className="m-0">
+					<p className="m-0 c-gray_700">
 						Logged in as: <strong>Josh Wilkerson</strong>
 					</p>
 				</div>

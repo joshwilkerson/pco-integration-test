@@ -51,6 +51,7 @@ export default class IntegrationChecker extends React.Component {
 						<div className="d-f fd-c mb-2">
 							<label htmlFor="name" className="mb-4p">
 								Name
+								<span>Something you can reference later...</span>
 							</label>
 							<input
 								name="name"
@@ -63,6 +64,9 @@ export default class IntegrationChecker extends React.Component {
 						<div className="d-f fd-c">
 							<label htmlFor="data" className="mb-4p">
 								Paste Code Here
+								<span>
+									Copy/paste a Giving/People form or Resources Widget...
+								</span>
 							</label>
 							<textarea
 								name="data"
@@ -94,7 +98,7 @@ export default class IntegrationChecker extends React.Component {
 				{app === "resources" && <DisplayWidget data={data} name={name} />}
 
 				{app && (
-					<div className="d-b mt-2">
+					<div className="d-b mt-3">
 						<button className="btn btn--primary mr-1">Save Integration</button>
 						<button className="btn btn--secondary" onClick={handleClear}>
 							Start Over

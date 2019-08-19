@@ -1,7 +1,7 @@
 .integration-details {
   padding: 1.5em;
   border: 1px solid $gray_300;
-  background: #fff;
+  background: $gray_25;
   box-shadow: 0 5px 10px -5px  $gray_400;
   border-radius: 6px;
   overflow: hidden;
@@ -62,8 +62,8 @@
     }
 
     svg {
-      width: #{$deleteLinkSize - 8}px;
-      height: #{$deleteLinkSize - 8}px;
+      width: #{$deleteLinkSize - 10}px;
+      height: #{$deleteLinkSize - 10}px;
       display: inline-block;
 
       * {
