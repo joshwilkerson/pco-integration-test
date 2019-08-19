@@ -12,7 +12,7 @@ export default class IntegrationChecker extends React.Component {
 
 	render() {
 		const { name, data, app, error } = this.state
-		const dataArray = data.split("/")
+		const dataArray = data.split("/").filter(data => data.trim() != "")
 
 		const handleInputChange = e => {
 			this.setState({ data: e.target.value })
@@ -33,11 +33,11 @@ export default class IntegrationChecker extends React.Component {
 		}
 
 		const setDataType = () => {
-			if (dataArray[dataArray.length - 1].includes("giving")) {
+			if (dataArray[2].includes("giving")) {
 				this.setState({ app: "giving", error: false })
-			} else if (dataArray[dataArray.length - 3] === "people") {
+			} else if (dataArray[2] === "people") {
 				this.setState({ app: "people", error: false })
-			} else if (dataArray[dataArray.length - 4].includes("resources")) {
+			} else if (dataArray[5].includes("resources")) {
 				this.setState({ app: "resources", error: false })
 			} else {
 				this.setState({ app: "", error: true })
