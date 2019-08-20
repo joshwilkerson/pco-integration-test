@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import { testData } from "./test_data"
 
 import GivingBadge from "../assets/svg/giving.svg"
@@ -14,14 +15,20 @@ export default function SavedIntegrations() {
 				{testData.map(data => {
 					return (
 						<div className="integration-link" key={data.id}>
-							<a href="#_" className="app">
+							<Link
+								to={{
+									pathname: data.path,
+									state: { hasInheritedProps: false, app: data.app },
+								}}
+								className="app"
+							>
 								<span className="icon">
 									{data.app == "giving" && <GivingBadge />}
 									{data.app == "people" && <PeopleBadge />}
 									{data.app == "resources" && <ResourcesBadge />}
 								</span>
 								{data.name}
-							</a>
+							</Link>
 							<a href="#_" className="delete">
 								<Close />
 							</a>

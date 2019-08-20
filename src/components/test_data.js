@@ -1,18 +1,21 @@
 export const testData = [
 	{
 		id: 1,
+		path: "/form",
 		app: "giving",
 		name: "Giving Form",
 		data: "https://carlsbad.staging.churchcenter.com/giving",
 	},
 	{
 		id: 2,
+		path: "/form",
 		app: "people",
 		name: "A Very Nice Form",
 		data: "https://carlsbad.churchcenter.com/people/forms/160",
 	},
 	{
 		id: 3,
+		path: "/widget",
 		app: "resources",
 		name: "Room Schedule",
 		data: `<div id="resources_calendar_widget" class="styled">

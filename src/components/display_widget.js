@@ -1,41 +1,57 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import { string } from "prop-types"
+import AppIcon from "./app_icon"
+import { testData } from "./test_data"
 
-import ResourcesBadge from "../assets/svg/resources.svg"
+export default class DisplayWidget extends React.Component {
+	static propTypes = {
+		name: string.isRequired,
+		data: string.isRequired,
+	}
 
-DisplayWidget.propTypes = {
-	data: string.isRequired,
-	name: string.isRequired,
-}
+	static defaultProps = {
+		name: "",
+		data: "",
+	}
 
-export default function DisplayWidget(props) {
-	const { data, name } = props
-	const dataArray = data.split("</div>")
+	state = {
+		hasInheritedProps: false,
+	}
 
-	const isolateScript = dataArray[dataArray.length - 1]
-		.replace('<script type="text/javascript">', "")
-		.replace("</script>", "")
+	isolateScript(data) {
+		const dataArray = data.split('"')
+		const script = document.createElement("script")
+		script.src = dataArray[dataArray.length - 4]
+		script.async = true
+		document.body.appendChild(script)
+	}
 
-	return (
-		<div className="integration-details">
-			<Helmet
-				script={[
-					{
-						type: "text/javascript",
-						innerHTML: isolateScript,
-					},
-				]}
-			/>
+	componentDidMount() {
+		if (this.props.data) {
+			this.isolateScript(this.props.data)
+			this.setState({ hasInheritedProps: true })
+		} else {
+			this.isolateScript(testData[2].data)
+		}
+	}
 
-			<div className="d-f ai-c jc-fs mb-2">
-				<ResourcesBadge />
-				<h2>{name}</h2>
+	render() {
+		const { name } = this.props
+
+		return (
+			<div className="integration-details">
+				<div className="d-f ai-c jc-fs mb-2">
+					<div className="p-r mr-4p" style={{ top: 3 }}>
+						<AppIcon app="resources" />
+					</div>
+
+					<h2>{this.state.hasInheritedProps ? name : testData[2].name}</h2>
+				</div>
+
+				<div id="resources_calendar_widget" className="styled">
+					<div className="loader">Loading...</div>
+				</div>
 			</div>
-
-			<div id="resources_calendar_widget" className="styled">
-				<div className="loader">Loading...</div>
-			</div>
-		</div>
-	)
+		)
+	}
 }
