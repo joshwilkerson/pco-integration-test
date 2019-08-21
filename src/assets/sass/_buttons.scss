@@ -97,6 +97,7 @@
     background: $gray_300;
     color: $gray_600;
     cursor: not-allowed;
+    box-shadow: none !important;
 
     &:before, &:after {
       display: none;
