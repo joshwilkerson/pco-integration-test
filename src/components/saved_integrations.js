@@ -9,9 +9,12 @@ import Close from "../assets/svg/close.svg"
 
 export default function SavedIntegrations() {
 	return (
-		<div className="px-4 py-2">
-			<h1>My Saved Integrations</h1>
-			<div className="pl-2">
+		<div>
+			<div className="alert alert--success fadeOut">
+				Integration successfully created
+			</div>
+			<h1 className="m-0 pb-2">My Saved Integrations</h1>
+			<div className="pl-2@sm">
 				{testData.map(data => {
 					return (
 						<div className="integration-link" key={data.id}>

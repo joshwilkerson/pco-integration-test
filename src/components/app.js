@@ -11,10 +11,18 @@ const App = () => {
 		<BrowserRouter>
 			<div className="container">
 				<Header />
-				<Route exact path="/" component={IntegrationChecker} />
-				<Route path="/saved" component={SavedIntegrations} />
-				<Route path="/form" render={props => <DisplayEmbedForm {...props} />} />
-				<Route path="/widget" render={props => <DisplayWidget {...props} />} />
+				<div className="p-3">
+					<Route exact path="/" component={IntegrationChecker} />
+					<Route path="/saved" component={SavedIntegrations} />
+					<Route
+						path="/form"
+						render={props => <DisplayEmbedForm {...props} />}
+					/>
+					<Route
+						path="/widget"
+						render={props => <DisplayWidget {...props} />}
+					/>
+				</div>
 			</div>
 		</BrowserRouter>
 	)

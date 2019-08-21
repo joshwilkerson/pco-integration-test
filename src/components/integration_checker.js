@@ -45,13 +45,14 @@ export default class IntegrationChecker extends React.Component {
 		}
 
 		return (
-			<div className="d-f fd-c p-2">
+			<div className="d-f fd-c">
+				<h1 className="m-0 pb-2">Create New Integration</h1>
 				{app == "" && (
 					<div className="mb-2">
 						<div className="d-f fd-c mb-2">
 							<label htmlFor="name" className="mb-4p">
-								Name
-								<span>Something you can reference later...</span>
+								Integration Name
+								<span>Something you can reference later</span>
 							</label>
 							<input
 								name="name"
@@ -63,9 +64,9 @@ export default class IntegrationChecker extends React.Component {
 
 						<div className="d-f fd-c">
 							<label htmlFor="data" className="mb-4p">
-								Paste Code Here
+								Integration Code
 								<span>
-									Copy/paste a Giving/People form or Resources Widget...
+									Copy & paste a Giving/People form or Resources Widget here
 								</span>
 							</label>
 							<textarea

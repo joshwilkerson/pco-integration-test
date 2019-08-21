@@ -19,22 +19,23 @@ export default class DisplayEmbedForm extends React.Component {
 		data: "",
 	}
 
-	state = {
-		hasInheritedProps: false,
-		app: "",
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			hasInheritedProps: true,
+			app: "",
+		}
 	}
 
 	componentDidMount() {
-		const { app } = this.props.location.state
+		const { app } = this.props.location.state || this.props.app
+		this.setState({
+			app: app,
+		})
 
-		if (!this.state.hasInheritedProps) {
-			this.setState({
-				app: app,
-			})
-		}
-
-		if (this.props.name) {
-			this.setState({ hasInheritedProps: true })
+		if (this.props.name === "") {
+			this.setState({ hasInheritedProps: false })
 		}
 	}
 
@@ -45,7 +46,7 @@ export default class DisplayEmbedForm extends React.Component {
 		const testDataIndex = this.state.app === "giving" ? 0 : 1
 
 		return (
-			<div className="integration-details">
+			<div className="integration-details d-f fd-c fd-r@md jc-sb@md ai-c@md">
 				<Helmet
 					script={[
 						{
@@ -54,20 +55,20 @@ export default class DisplayEmbedForm extends React.Component {
 						},
 					]}
 				/>
-				<div className="d-f ai-c jc-fs mb-2">
+				<div className="d-f ai-c jc-fs f-1">
 					<AppIcon app={this.state.hasInheritedProps ? app : this.state.app} />
 					<h2>
 						{this.state.hasInheritedProps ? name : testData[testDataIndex].name}
 					</h2>
 				</div>
 
-				<div className="d-f">
+				<div className="d-b d-ib@md mt-3 mt-0@md">
 					<a
 						href={
 							this.state.hasInheritedProps ? url : testData[testDataIndex].data
 						}
 						data-open-in-church-center-modal="true"
-						className="btn btn--primary mr-1"
+						className="btn btn--secondary btn--sm mr-2"
 					>
 						Open modal
 					</a>
@@ -77,7 +78,7 @@ export default class DisplayEmbedForm extends React.Component {
 						}
 						rel="noopener noreferrer"
 						target="_blank"
-						className="btn btn--primary"
+						className="btn btn--secondary btn--sm"
 					>
 						Open new tab
 					</a>
