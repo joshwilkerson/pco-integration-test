@@ -31,7 +31,7 @@
     "@svgr/parcel-plugin-svgr": "^4.3.2",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
-    "browserslist": "^4.6.6",
+    "browserslist": "^4.16.5",
     "cross-env": "^5.2.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^2.9.0",
